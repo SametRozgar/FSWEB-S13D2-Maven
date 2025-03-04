@@ -40,57 +40,24 @@ public class Main {
         return  number==sayac;
     }
 
-    public static String numberToWords (int number)
-    {
-        if(number<0)
-        {
-            System.out.println( "Invalid Value" );
+    public static String numberToWords(int number) {
+        if (number < 0) {
             return "Invalid Value";
         }
 
-        String result="";
-        String numStr=Integer.toString(number);
+        String[] words = {"Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"};
+        StringBuilder result = new StringBuilder();
+        String numStr = Integer.toString(number);
 
-        char[] charArray=numStr.toCharArray();
-
-        for (char c : charArray) {
-            switch (c) {
-                case '0':
-                    result += "Zero ";
+        for (int i = 0; i < numStr.length(); i++) {
+            for (int j = 0; j < words.length; j++) {
+                if (Character.getNumericValue(numStr.charAt(i)) == j) {
+                    result.append(words[j]).append(" ");
                     break;
-                case '1':
-                    result += "One ";
-                    break;
-                case '2':
-                    result += "Two ";
-                    break;
-                case '3':
-                    result += "Three ";
-                    break;
-                case '4':
-                    result += "Four ";
-                    break;
-                case '5':
-                    result += "Five ";
-                    break;
-                case '6':
-                    result += "Six ";
-                    break;
-                case '7':
-                    result += "Seven ";
-                    break;
-                case '8':
-                    result += "Eight ";
-                    break;
-                case '9':
-                    result += "Nine ";
-                    break;
-                default:
-                    return "Invalid Value";
+                }
             }
         }
 
-        return result;
+        return result.toString().trim();
     }
-
 }
