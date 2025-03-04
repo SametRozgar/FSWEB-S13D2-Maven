@@ -46,6 +46,8 @@ public class Main {
         }
 
 
+
+
         String[] words = {"Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"};
         StringBuilder result = new StringBuilder();
         String numStr = Integer.toString(number);
